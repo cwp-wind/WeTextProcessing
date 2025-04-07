@@ -35,13 +35,19 @@ class Money(Processor):
         digit = string_file(
             get_abs_path('../itn/chinese/data/number/digit.tsv'))  # 1 ~ 9
 
-        number = Cardinal().number if self.enable_0_to_9 else \
-            Cardinal().number_exclude_0_to_9
+        #number = Cardinal().number if self.enable_0_to_9 else \
+        #    Cardinal().number_exclude_0_to_9
+        number = Cardinal().all_number
         # 七八美元 => $7~8
         number |= digit + insert("~") + digit
         # 三千三百八十元五毛八分 => ¥3380.58
+        #tagger = (insert('value: "') + number + insert('"') +
+        #          insert(' currency: "') + (code | symbol) + insert('"') +
+        #          insert(' decimal: "') +
+        #          (insert(".") + digit + (delete("毛") | delete("角")) +
+        #           (digit + delete("分")).ques).ques + insert('"'))
         tagger = (insert('value: "') + number + insert('"') +
-                  insert(' currency: "') + (code | symbol) + insert('"') +
+                  insert(' currency: "') + (code) + insert('"') +
                   insert(' decimal: "') +
                   (insert(".") + digit + (delete("毛") | delete("角")) +
                    (digit + delete("分")).ques).ques + insert('"'))
@@ -52,4 +58,5 @@ class Money(Processor):
         value = delete(' value: "') + self.SIGMA + delete('"')
         decimal = delete(' decimal: "') + self.SIGMA + delete('"')
         verbalizer = currency + value + decimal
+        #print("aaa{0} ".format(verbalizer))
         self.verbalizer = self.delete_tokens(verbalizer)

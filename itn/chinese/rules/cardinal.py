@@ -28,6 +28,7 @@ class Cardinal(Processor):
         super().__init__('cardinal')
         self.number = None
         self.number_exclude_0_to_9 = None
+        self.all_number = None
         self.enable_standalone_number = enable_standalone_number
         self.enable_0_to_9 = enable_0_to_9
         self.enable_million = enable_million
@@ -160,6 +161,7 @@ class Cardinal(Processor):
                 cardinal |= add_weight(number, 0.1)
             else:
                 cardinal |= add_weight(number_exclude_0_to_9, 0.1)
+        self.all_number = cardinal.optimize()
         tagger = insert('value: "') + cardinal + (insert(" ") + cardinal).star \
             + insert('"')
         self.tagger = self.add_tokens(tagger)
