@@ -35,7 +35,8 @@ class Date(Processor):
         mm = string_file(get_abs_path('chinese/data/date/mm.tsv'))
         d = string_file(get_abs_path('chinese/data/date/d.tsv'))
         dd = string_file(get_abs_path('chinese/data/date/dd.tsv'))
-        rmsign = (delete('/') | delete('-') | delete('.')) + insert(' ')
+        rmsign = (delete('/') | delete('-') | delete('.') | delete('年') | delete('月') | delete('日')) + insert(' ')
+        #rmsign = (delete('/') | delete('-') | delete('.')) + insert(' ')
 
         year = insert('year: "') + yyyy + insert('年"')
         month = insert('month: "') + (m | mm) + insert('"')

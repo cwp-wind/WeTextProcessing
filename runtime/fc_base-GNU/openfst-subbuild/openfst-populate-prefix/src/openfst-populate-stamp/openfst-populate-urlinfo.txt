@@ -1,0 +1,3 @@
+repository='external project URL'
+module='https://github.com/kkm000/openfst/archive/refs/tags/win/1.7.2.1.tar.gz'
+tag='SHA256=e04e1dabcecf3a687ace699ccb43a8a27da385777a56e69da6e103344cc66bca'

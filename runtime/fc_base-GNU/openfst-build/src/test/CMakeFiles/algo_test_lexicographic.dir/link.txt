@@ -1,0 +1,1 @@
+/usr/bin/c++  -std=c++14 -pthread -fPIC -rdynamic CMakeFiles/algo_test_lexicographic.dir/algo_test.cc.o -o algo_test_lexicographic  ../lib/libfst.a -ldl ../../../gflags-build/libgflags_nothreads.a ../../../glog-build/libglog.a 

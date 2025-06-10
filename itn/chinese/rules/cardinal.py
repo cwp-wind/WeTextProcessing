@@ -28,7 +28,6 @@ class Cardinal(Processor):
         super().__init__('cardinal')
         self.number = None
         self.number_exclude_0_to_9 = None
-        self.all_number = None
         self.enable_standalone_number = enable_standalone_number
         self.enable_0_to_9 = enable_0_to_9
         self.enable_million = enable_million
@@ -95,7 +94,8 @@ class Cardinal(Processor):
                  | add_weight(addzero + addzero + zero + digit, 0.5)
                  | add_weight(digit + addzero**3, 0.8)
                  | add_weight(addzero**4, 1.0)))
-            ten_thousand |= (thousand | hundred) + accep("万") + delete(
+            #ten_thousand |= (thousand | hundred) + accep("万") + delete(
+            ten_thousand |= (thousand | hundred | tens | teen | digits) + accep("万") + delete(
                 "零").ques + (thousand | hundred | tens | teen | digits).ques
 
         # 1. 利用基础数字所构建的包含0~9的标准数字
@@ -161,7 +161,7 @@ class Cardinal(Processor):
                 cardinal |= add_weight(number, 0.1)
             else:
                 cardinal |= add_weight(number_exclude_0_to_9, 0.1)
-        self.all_number = cardinal.optimize()
-        tagger = insert('value: "') + cardinal + (insert(" ") + cardinal).star \
+        #tagger = insert('value: "') + cardinal + (insert(" ") + cardinal).star \
+        tagger = insert('value: "') + cardinal + (cardinal).star \
             + insert('"')
         self.tagger = self.add_tokens(tagger)

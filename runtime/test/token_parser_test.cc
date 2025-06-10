@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Zhendong Peng (pzd17@tsinghua.org.cn)
+o// Copyright (c) 2022 Zhendong Peng (pzd17@tsinghua.org.cn)
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -26,7 +26,9 @@ class TokenParserTest : public testing::Test {
   wetext::TokenParser* parser;
 
   virtual void SetUp() {
-    parser = new wetext::TokenParser(wetext::ParseType::kTN);
+    //parser = new wetext::TokenParser(wetext::ParseType::kTN);
+    parser = new wetext::TokenParser();
+    //parser = new wetext::TokenParser;
   }
 
   virtual void TearDown() { delete parser; }

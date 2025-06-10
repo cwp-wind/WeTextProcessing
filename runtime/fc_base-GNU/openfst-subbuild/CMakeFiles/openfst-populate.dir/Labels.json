@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/CMakeFiles/openfst-populate"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/CMakeFiles/openfst-populate.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/CMakeFiles/openfst-populate-complete.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/openfst-populate-prefix/src/openfst-populate-stamp/openfst-populate-build.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/openfst-populate-prefix/src/openfst-populate-stamp/openfst-populate-configure.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/openfst-populate-prefix/src/openfst-populate-stamp/openfst-populate-download.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/openfst-populate-prefix/src/openfst-populate-stamp/openfst-populate-install.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/openfst-populate-prefix/src/openfst-populate-stamp/openfst-populate-mkdir.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/openfst-populate-prefix/src/openfst-populate-stamp/openfst-populate-patch.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/openfst-populate-prefix/src/openfst-populate-stamp/openfst-populate-test.rule"
+		},
+		{
+			"file" : "/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/openfst-populate-prefix/src/openfst-populate-stamp/openfst-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"openfst-populate"
+		],
+		"name" : "openfst-populate"
+	}
+}
