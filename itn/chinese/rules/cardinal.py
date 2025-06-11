@@ -94,8 +94,7 @@ class Cardinal(Processor):
                  | add_weight(addzero + addzero + zero + digit, 0.5)
                  | add_weight(digit + addzero**3, 0.8)
                  | add_weight(addzero**4, 1.0)))
-            #ten_thousand |= (thousand | hundred) + accep("万") + delete(
-            ten_thousand |= (thousand | hundred | tens | teen | digits) + accep("万") + delete(
+            ten_thousand |= (thousand | hundred) + accep("万") + delete(
                 "零").ques + (thousand | hundred | tens | teen | digits).ques
 
         # 1. 利用基础数字所构建的包含0~9的标准数字

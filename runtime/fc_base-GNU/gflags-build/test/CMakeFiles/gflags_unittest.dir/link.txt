@@ -1,1 +1,0 @@
-/usr/bin/c++  -std=c++14 -pthread -fPIC -rdynamic CMakeFiles/gflags_unittest.dir/gflags_unittest.cc.o -o ../bin/gflags_unittest  ../libgflags_nothreads.a 
