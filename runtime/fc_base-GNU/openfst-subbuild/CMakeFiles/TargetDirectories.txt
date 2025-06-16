@@ -1,3 +1,0 @@
-/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/CMakeFiles/openfst-populate.dir
-/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/CMakeFiles/edit_cache.dir
-/root/code/wetext_my/runtime/fc_base-GNU/openfst-subbuild/CMakeFiles/rebuild_cache.dir
