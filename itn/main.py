@@ -46,7 +46,7 @@ def main():
                         help='一百 = 100 if True else 一百')
     parser.add_argument('--enable_0_to_9',
                         type=str,
-                        default='False',
+                        default='True',
                         help='零和九 = 0和9 if True else 零和九')
     parser.add_argument('--enable_million',
                         type=str,

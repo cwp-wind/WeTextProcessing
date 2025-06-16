@@ -22,10 +22,11 @@ from itn.chinese.test.utils import parse_test_case
 
 class TestNormalizer:
 
-    normalizer = InverseNormalizer(overwrite_cache=True,
+    normalizer = InverseNormalizer(overwrite_cache=False,
                                    enable_standalone_number=True,
                                    enable_0_to_9=True,
-                                   enable_million=False)
+                                   enable_million=False,
+                                   cache_dir="/root/code/wetext_my/itn/")
 
     normalizer_cases = chain(parse_test_case('data/cardinal.txt'),
                              parse_test_case('data/char.txt'),
@@ -47,7 +48,7 @@ class TestNormalizer:
 
 class TestNormalizerDisablestandalonenumberEnable0to9:
 
-    normalizer = InverseNormalizer(overwrite_cache=True,
+    normalizer = InverseNormalizer(overwrite_cache=False,
                                    enable_standalone_number=False,
                                    enable_0_to_9=True,
                                    enable_million=False)
@@ -69,7 +70,7 @@ class TestNormalizerDisablestandalonenumberEnable0to9:
 
 class TestNormalizerEnablestandalonenumberDisable0to9:
 
-    normalizer = InverseNormalizer(overwrite_cache=True,
+    normalizer = InverseNormalizer(overwrite_cache=False,
                                    enable_standalone_number=True,
                                    enable_0_to_9=False,
                                    enable_million=False)
@@ -90,7 +91,7 @@ class TestNormalizerEnablestandalonenumberDisable0to9:
 
 class TestNormalizerDisablestandalonenumberDisable0to9:
 
-    normalizer = InverseNormalizer(overwrite_cache=True,
+    normalizer = InverseNormalizer(overwrite_cache=False,
                                    enable_standalone_number=False,
                                    enable_0_to_9=False,
                                    enable_million=False)

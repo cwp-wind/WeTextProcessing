@@ -27,9 +27,9 @@ class Money(Processor):
         self.enable_0_to_9 = enable_0_to_9
         self.build_tagger()
         self.build_verbalizer()
+        # print("TAGGER FST:\n", self.tagger)
+        # print("VERBALIZER FST:\n", self.verbalizer)
 
-
-        
     def build_tagger(self):
         code = string_file(get_abs_path('../itn/chinese/data/money/code.tsv'))
         symbol = string_file(
@@ -54,16 +54,11 @@ class Money(Processor):
         #currency = delete('currency: "') + self.SIGMA + delete('"')
         #value = delete(' value: "') + self.SIGMA + delete('"')
         #decimal = delete(' decimal: "') + self.SIGMA + delete('"')
-        
+        #verbalizer = currency + value + decimal
+
         currency = delete(' currency: "') + self.SIGMA + delete('"')
         value = delete('value: "') + self.SIGMA + delete('"')
         decimal = delete(' decimal: "') + self.SIGMA + delete('"')
         verbalizer = value + decimal + currency
-
-
-        #value = delete('value: "') + self.SIGMA + delete('"')
-        #currency = delete(' currency: "') + self.SIGMA + delete('"')
-        #decimal = delete(' decimal: "') + self.SIGMA + delete('"')
-        #verbalizer = value + decimal + currency
-
+        
         self.verbalizer = self.delete_tokens(verbalizer)

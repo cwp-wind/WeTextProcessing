@@ -26,6 +26,7 @@ class Cardinal(Processor):
                  enable_0_to_9=True,
                  enable_million=False):
         super().__init__('cardinal')
+        # print("到底走哪里！")
         self.number = None
         self.number_exclude_0_to_9 = None
         self.enable_standalone_number = enable_standalone_number
@@ -105,6 +106,7 @@ class Cardinal(Processor):
                   (number + accep('亿') + delete('零').ques).ques + number)
         # 负的xxx 1.11, 1.01
         number = sign.ques + number + (dot + digits.plus).ques
+
         # 五六万 => 5~6万，三五千 => 3000~5000，六七百 => 600~700，三四十 => 30~40, 三四十亿 => 30~40亿
         number |= special_tilde
         # 十七八 => 17-8, 四十五六 => 45-6, 三百七八十 => 370-80, 四十五六万 => 45-6万, 一万六七 => 16000-7000
@@ -145,6 +147,8 @@ class Cardinal(Processor):
         cardinal = digits.plus + (dot + digits.plus).plus
         # float number like 1.11
         cardinal |= (number + dot + digits.plus)
+        # 新增：添加对"数字点数字万"的支持
+        cardinal |= (number + dot + digits.plus + accep("万"))
         # cardinal string like 110 or 12306 or 13125617878, used in phone,
         #   340621199806051223, used in ID card
         idcard_last_char = digits | 'X' | 'x'
@@ -160,7 +164,9 @@ class Cardinal(Processor):
                 cardinal |= add_weight(number, 0.1)
             else:
                 cardinal |= add_weight(number_exclude_0_to_9, 0.1)
-        #tagger = insert('value: "') + cardinal + (insert(" ") + cardinal).star \
+
+        # tagger = insert('value: "') + cardinal + (insert(" ") + cardinal).star \
+        #     + insert('"')
         tagger = insert('value: "') + cardinal + (cardinal).star \
             + insert('"')
         self.tagger = self.add_tokens(tagger)

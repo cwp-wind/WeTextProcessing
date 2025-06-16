@@ -80,6 +80,12 @@ class Measure(Processor):
                  (digit + delete('千') + add_weight(addzero**3, 1.0)) |
                  (digit + delete('万') + add_weight(addzero**4, 1.0))) +
                 insert(' ') + digit + union(*unit_sp_case1), -0.5)
+
+            # measure_sp = add_weight(
+            #     ((digit) |
+            #      (digit) |
+            #      (digit)) +
+            #     insert(' ') + digit + union(*unit_sp_case1), -0.5)
         else:
             measure_sp = add_weight(
                 ((digit + delete('百') + add_weight(addzero**2, 1.0)) |
